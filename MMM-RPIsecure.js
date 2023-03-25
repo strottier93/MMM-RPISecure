@@ -1,18 +1,17 @@
 Module.register('MMM-RPIsecure', {
 	
 	// Default configurations
-	showEvent: false,
+	enableEvent: false,
 	showCamID: false,
+	internalTimer: 0,
 	defaults: {
-		maxWidth: 450,
-		maxHeight: 450,
 		showDelay: 30000,
 		cameraData: []
 	},
 	
 	// Style CSS
 	getStyles: function() {
-		return ["font-awesome.css"];
+		return ["MMM-RPIsecure.css", "font-awesome.css"];
 	},
 	
 	// Core javascript
@@ -23,24 +22,32 @@ Module.register('MMM-RPIsecure', {
 	// Init Start
 	start: function() {
 		
-		this.sendSocketNotification("CONNECT", "");
+		this.sendSocketNotification();
+		
 		Log.info("Starting module: " + this.name);
 		moment.locale(config.language);
 		
 		// Reset after delay
 		setInterval(() => {
-			this.showEvent=false;
-			this.showCamID=false;
-			this.updateDom();
-		}, this.config.showDelay);
+			
+			if (this.internalTimer > 0) {
+				this.internalTimer = this.internalTimer-1000;
+			} else {
+				this.showCamID = false;
+				this.enableEvent = false;
+				this.updateDom(1000);
+			}
+			
+		}, 1000);
 	},
 	
 	// Receive from HTTP Request
 	socketNotificationReceived: function(notification, payload) {
 		
-		if (notification === "SHOW") {
-			this.showCamID=payload.zone;
-			this.showEvent=true;
+		if (notification == "SHOW") {
+			this.showCamID = payload.zone;
+			this.enableEvent = true;
+			this.internalTimer = this.config.showDelay;
 			this.updateDom(1000);
 		}
 	},
@@ -48,23 +55,39 @@ Module.register('MMM-RPIsecure', {
 	// Show module
 	getDom: function() {
 		
-		if (this.showEvent == true) {
+		if (this.enableEvent == true) {
+			
+			// Camera data select
+			cameraSetting = this.config.cameraData[this.showCamID];
 			
 			// Create DIV container
 			var wrapper = document.createElement("div");
 			
 			// Create HEADER container
 			var title = document.createElement("header");
-			title.innerHTML = this.config.cameraData[this.showCamID].name || "NO NAME DEFINE";
+			title.innerHTML = cameraSetting.name || "NO NAME DEFINE";
 			wrapper.appendChild(title);
 			
 			// Create IFRAME container
-			var iframe = document.createElement("IFRAME");
-			iframe.style = "border: 0 none transparent";
-			iframe.width = this.config.maxWidth;
-			iframe.height = this.config.maxHeight;
-			iframe.src = this.config.cameraData[this.showCamID].url;
-			wrapper.appendChild(iframe);
+			if (cameraSetting.type == "html5") {
+				var video = document.createElement("iframe");
+				video.className = "iframe";
+			}
+			
+			// Create VIDEO container
+			if (cameraSetting.type == "video") {
+				var video = document.createElement("video");
+				video.autoplay = true;
+				video.controls = false;
+				video.muted = true;
+			}
+			
+			// Common video settings
+			video.width = (cameraSetting.width < 500) ? cameraSetting.width : 500;
+			video.height = (cameraSetting.height < 500) ? cameraSetting.height : 500;
+			video.src = cameraSetting.url;
+			wrapper.appendChild(video);
+			
 		} else {
 			var wrapper = document.createElement("div");
 		}
