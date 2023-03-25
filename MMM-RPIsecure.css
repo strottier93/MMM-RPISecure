@@ -1,3 +1,9 @@
-.iframe {
- overflow: hidden;
+.MMM-RPIsecure {
+	width:fit-content;
+	max-width:500px;
+}
+
+.MMM-RPIsecure .iframe {
+	border: 0 none transparent;
+	position:relative;
 }
