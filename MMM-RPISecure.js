@@ -65,7 +65,7 @@ Module.register('MMM-RPISecure', {
 			
 			// Create HEADER container
 			var title = document.createElement("header");
-			title.innerHTML = cameraSetting.name || "NO NAME DEFINE";
+			title.innerHTML = cameraSetting.name || "CAMERA LIVE";
 			wrapper.appendChild(title);
 			
 			// Create IFRAME container
@@ -83,8 +83,8 @@ Module.register('MMM-RPISecure', {
 			}
 			
 			// Common video settings
-			video.width = (cameraSetting.width < 500) ? cameraSetting.width : 500;
-			video.height = (cameraSetting.height < 500) ? cameraSetting.height : 500;
+			video.width = (cameraSetting.width < 500 && cameraSetting.width != false) ? cameraSetting.width : 500;
+			video.height = (cameraSetting.height < 500 && cameraSetting.height != false) ? cameraSetting.height : 500;
 			video.src = cameraSetting.url;
 			wrapper.appendChild(video);
 			
