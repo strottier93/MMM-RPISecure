@@ -1,4 +1,4 @@
-Module.register('MMM-RPIsecure', {
+Module.register('MMM-RPISecure', {
 	
 	// Default configurations
 	enableEvent: false,
@@ -11,7 +11,7 @@ Module.register('MMM-RPIsecure', {
 	
 	// Style CSS
 	getStyles: function() {
-		return ["MMM-RPIsecure.css", "font-awesome.css"];
+		return ["MMM-RPISecure.css", "font-awesome.css"];
 	},
 	
 	// Core javascript
