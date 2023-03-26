@@ -30,8 +30,8 @@ To install the module, use your terminal to:
 	 position: 'top_left',
 	 config: {
 	          showDelay: '10000',
-		  cameraData: [ { name: 'Front Door', width: '300', height: '170', type: 'html5', url: 'http://ADDRESS_IP/video' },
-				{ name: 'Rear Door', width: '300', height: '170', type: 'video', url: 'http://ADDRESS_IP/video.mp4' } ]
+		  cameraData: [ { espPin: '4', name: 'Front Door', width: '300', height: '170', type: 'html5', url: 'http://ADDRESS_IP/video' },
+				{ espPin: '5', name: 'Rear Door', width: '300', height: '170', type: 'video', url: 'http://ADDRESS_IP/video.mp4' } ]
 	         }
     }
     ```
@@ -41,6 +41,7 @@ To install the module, use your terminal to:
 | ----------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `showDelay`             | _Optional_ - Camera show 30 seconds if this value isn't define.<br />**Value:** Time in ms. If you set `showDelay: 10000`, your camera while show during 10 seconds.                                                                               |  
 | `cameraData`            | **REQUIRED** - It's settings of each live stream camera.<br />**Options:** The available properties for the object are: `name`, `width`, `height`, `type`, `url`                                                                                   |
+| `espPin`                | **REQUIRED** - Put the pin number I/O of the ESP32 module where button for display this camera is connect.                                                                                                                                                                          |
 | `name`                  | _Optional_ - The name for header when camera is show.<br />**Default:** `CAMERA LIVE`                                                                                                                                                              |
 | `width`                 | _Optional_ - The video width for adjust.<br />**Default:** `500px`<br />**Maximum:** `500px`                                                                                                                                                       |
 | `height`                | _Optional_ - The video height for adjust.<br />**Default:** `500px`<br />**Maximum:** `500px`                                                                                                                                                      |
