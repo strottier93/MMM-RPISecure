@@ -26,7 +26,7 @@ To install the module, use your terminal to:
 
     ```js
     {
-	 module: 'MMM-RPIsecure',
+	 module: 'MMM-RPISecure',
 	 position: 'top_left',
 	 config: {
 	          showDelay: '10000',
