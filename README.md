@@ -48,4 +48,51 @@ To install the module, use your terminal to:
 | `url`                   | **REQUIRED** - Source of your camera live stream. Example: `http://192.168.0.10/video` or `http://192.168.0.10/video.mp4`                                                                                                                          |
 
 
-## Setup ESP32 module
+# Setup ESP32 module
+
+## 1\. Installing ESP32 Add-on in Arduino IDE (Skip to step 2 if they are already installed)
+
+### 1.1\. In your Arduino IDE, go to File> Preferences
+
+![](https://i0.wp.com/randomnerdtutorials.com/wp-content/uploads/2016/12/arduino-ide-open-preferences.png?w=196&quality=100&strip=all&ssl=1)
+
+### 1.2\. Enter the following into the “Additional Board Manager URLs” field
+
+![](https://i0.wp.com/randomnerdtutorials.com/wp-content/uploads/2022/04/ESP32-URL-Arduino-IDE.png?w=828&quality=100&strip=all&ssl=1)
+
+Add librarie link: `https://raw.githubusercontent.com/espressif/arduino-esp32/gh-pages/package_esp32_index.json`
+
+**Note:** If you already have the ESP8266 boards URL, you can separate the URLs with a comma as follows:
+
+Add libraries links: `https://raw.githubusercontent.com/espressif/arduino-esp32/gh-pages/package_esp32_index.json, http://arduino.esp8266.com/stable/package_esp8266com_index.json`
+
+### 1.3\. Open the Boards Manager. Go to Tools > Board > Boards Manager
+
+![](https://i0.wp.com/randomnerdtutorials.com/wp-content/uploads/2018/06/boardsManager.png?w=628&quality=100&strip=all&ssl=1)
+
+### 1.4\. Search for ESP32 and press install button for the “ESP32 by Espressif Systems“
+
+![](https://i0.wp.com/randomnerdtutorials.com/wp-content/uploads/2018/06/installing.png?w=786&quality=100&strip=all&ssl=1)
+
+### 1.5\. That’s it. It should be installed after a few seconds
+
+![](https://i0.wp.com/randomnerdtutorials.com/wp-content/uploads/2019/07/ESP32-Board-add-on-in-Arduino-IDE-installed.png?w=786&quality=100&strip=all&ssl=1)
+
+## 2\. Configure ESP32 script
+
+### 2.1\. Open the main.cpp file in your Arduino IDE and modifiy theses lines
+
+```c++
+const char* ssid = "YOUR_NETWORK_SSID";
+const char* password = "YOUR_NETWORK_PASSWORD";
+String serverName = "http://YOUR_MAGICMIRROR_IP:8080/rpisecure";
+```
+
+
+
+
+
+
+
+
+
