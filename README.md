@@ -1,7 +1,7 @@
 # MMM-RPISecure
 This is a module for the MagicMirror<sup>2</sup> smart mirror project.
 
-This module displays home camera security when an event is detected by ESP32 script.
+This module displays home camera security when ESP32 detect doorbell button is press.
 
 ## Example
 
@@ -9,6 +9,8 @@ This module displays home camera security when an event is detected by ESP32 scr
 
 ## Dependencies
   * An installation of [MagicMirror<sup>2</sup>](https://github.com/MichMich/MagicMirror)
+  * ESP32 module (Example: ESP32-WROOM-32D)
+  * Voltage converter 24VDC to 3.3VDC (Select INPUT VDC same that your transformer. North America is 24VDC)
 
 ## Installation
 To install the module, use your terminal to:
@@ -42,8 +44,8 @@ To install the module, use your terminal to:
 | `name`                  | _Optional_ - The name for header when camera is show.<br />**Default:** `CAMERA LIVE`                                                                                                                                                              |
 | `width`                 | _Optional_ - The video width for adjust.<br />**Default:** `500px`<br />**Maximum:** `500px`                                                                                                                                                       |
 | `height`                | _Optional_ - The video height for adjust.<br />**Default:** `500px`<br />**Maximum:** `500px`                                                                                                                                                      |
-| `type`                  | **REQUIRED** - It's the player view.<br />**Options:**<br />- `html5`: Use this if your camera url is a page. Exemple: `http://192.168.0.10/video`<br />- `video`: Use this if your camera url is a file. Exemple: `http://192.168.0.10/video.mp4` |
-| `url`                   | **REQUIRED** - Source of your camera live stream. Exemple: `http://192.168.0.10/video` or `http://192.168.0.10/video.mp4`                                                                                                                          |
+| `type`                  | **REQUIRED** - It's the player view.<br />**Options:**<br />- `html5`: Use this if your camera url is a page. Example: `http://192.168.0.10/video`<br />- `video`: Use this if your camera url is a file. Example: `http://192.168.0.10/video.mp4` |
+| `url`                   | **REQUIRED** - Source of your camera live stream. Example: `http://192.168.0.10/video` or `http://192.168.0.10/video.mp4`                                                                                                                          |
 
 
-## How to Use
+## Setup ESP32 module
