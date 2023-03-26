@@ -58,13 +58,13 @@ To install the module, use your terminal to:
 
 ### 1.2\. Enter the following into the “Additional Board Manager URLs” field
 
-![](https://i0.wp.com/randomnerdtutorials.com/wp-content/uploads/2022/04/ESP32-URL-Arduino-IDE.png?w=828&quality=100&strip=all&ssl=1)
+`https://raw.githubusercontent.com/espressif/arduino-esp32/gh-pages/package_esp32_index.json`
 
-Add librarie link: `https://raw.githubusercontent.com/espressif/arduino-esp32/gh-pages/package_esp32_index.json`
+![](https://i0.wp.com/randomnerdtutorials.com/wp-content/uploads/2022/04/ESP32-URL-Arduino-IDE.png?w=828&quality=100&strip=all&ssl=1)
 
 **Note:** If you already have the ESP8266 boards URL, you can separate the URLs with a comma as follows:
 
-Add libraries links: `https://raw.githubusercontent.com/espressif/arduino-esp32/gh-pages/package_esp32_index.json, http://arduino.esp8266.com/stable/package_esp8266com_index.json`
+`https://raw.githubusercontent.com/espressif/arduino-esp32/gh-pages/package_esp32_index.json, http://arduino.esp8266.com/stable/package_esp8266com_index.json`
 
 ### 1.3\. Open the Boards Manager. Go to Tools > Board > Boards Manager
 
